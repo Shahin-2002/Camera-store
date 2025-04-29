@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "corsheaders",
     "django_jalali",
+    "authentication",
 ]
 
 MIDDLEWARE = [
@@ -143,7 +144,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom User
-AUTH_USER_MODEL = "authentication.User"
+# AUTH_USER_MODEL = "authentication.User"
 
 # Media
 MEDIA_URL = "/media/"
