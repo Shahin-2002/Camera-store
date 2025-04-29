@@ -1,0 +1,48 @@
+# Environment  
+.venv/  
+env/  
+venv/  
+
+# Python cache files  
+__pycache__/  
+*.pyc  
+*.pyo  
+
+# IDE settings  
+.vscode/  
+.idea/  
+
+# Database files  
+*.sqlite3  
+
+# Log files  
+*.log  
+
+# Environment variables  
+.env  
+
+# Static and media files  
+media/  
+staticfiles/  
+
+# Dependencies 
+/node_modules
+
+
+# Production build
+/build
+
+# Misc
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: IDE settings
+.vscode
+.idea
