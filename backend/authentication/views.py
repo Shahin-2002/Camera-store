@@ -12,13 +12,20 @@ class RegularCustomerRegistrationView(APIView):
 
         if serializer.is_valid():
             user = serializer.save()
-            refresh_token = RefreshToken.for_user(user)
-            return Response(
-                {
-                    "message": "ثبت نام با موفقیت انجام شد.",
-                    "refresh_token": str(refresh_token),
-                    "access_token": str(refresh_token.access_token),
-                },
+            response = Response(
+                {"message": "ثبت نام با موفقیت انجام شد.", "user": serializer.data},
                 status=status.HTTP_201_CREATED,
             )
+
+            refresh_token = RefreshToken.for_user(user)
+            tokens = {
+                "refresh": str(refresh_token),
+                "access": str(refresh_token.access_token),
+            }
+
+            for name, token in tokens.items():
+                response.set_cookie(
+                    key=name, value=token, httponly=True, secure=False, samesite="Lax"
+                )
+            return response
         return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
