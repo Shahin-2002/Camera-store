@@ -3,10 +3,36 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    phone = models.CharField(max_length=11, verbose_name="شماره تلفن")
+    class RoleStatus(models.TextChoices):
+        ADMIN = "admin", "ادمین"
+        REGULAR = "regular", "مشتری معمولی"
+        VIP = "vip", "مشتری ویژه"
+
+    phone = models.CharField(max_length=11, unique=True, verbose_name="شماره تلفن")
     profile_picture = models.ImageField(
-        upload_to="profile_pictures/", verbose_name="تصویر پروفایل"
+        upload_to="profile_pictures/",
+        blank=True,
+        null=True,
+        verbose_name="تصویر پروفایل",
     )
+    role = models.CharField(
+        max_length=10,
+        choices=RoleStatus.choices,
+        default=RoleStatus.REGULAR,
+        verbose_name="نقش کاربر",
+    )
+
+    @property
+    def is_admin(self):
+        return self.role == self.ADMIN
+
+    @property
+    def is_vip(self):
+        return self.role == self.VIP
+
+    @property
+    def is_regular(self):
+        return self.role == self.REGULAR
 
     def __str__(self):
         return f"{self.username} - {self.phone}"
