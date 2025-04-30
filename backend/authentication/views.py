@@ -17,12 +17,14 @@ class RegularCustomerRegistrationView(APIView):
                 status=status.HTTP_201_CREATED,
             )
 
+            # Generate JWT tokens for the user
             refresh_token = RefreshToken.for_user(user)
             tokens = {
                 "refresh": str(refresh_token),
                 "access": str(refresh_token.access_token),
             }
 
+            # set tokens as HTTP-only cookies
             for name, token in tokens.items():
                 response.set_cookie(
                     key=name, value=token, httponly=True, secure=False, samesite="Lax"
