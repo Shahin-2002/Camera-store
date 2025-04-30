@@ -21,3 +21,6 @@ class RegularCustomerRegistrationSerializer(serializers.ModelSerializer):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("ایمیل وارد شده قبلا ثبت شده است.")
         return value
+
+    def create(self, validated_data):
+        return User.objects.create_user(validated_data)
