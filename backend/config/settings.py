@@ -165,7 +165,6 @@ SIMPLE_JWT = {
 }
 
 
-# Email configuration for sending emails via Gmail's SMTP server
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "tiamtestblog@gmail.com"
 EMAIL_PORT = 587
