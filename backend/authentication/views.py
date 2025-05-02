@@ -1,14 +1,14 @@
 import random
 from .models import User
+from .serializers import *
 from rest_framework import status
 from django.core.cache import cache
 from django.core.mail import send_mail
 from rest_framework.views import APIView
+from config.settings import EMAIL_HOST_USER
 from rest_framework.response import Response
 from django.contrib.auth.hashers import make_password
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import *
-from config.settings import EMAIL_HOST_USER
 
 
 class EmailVerificationRequestView(APIView):
@@ -134,3 +134,33 @@ class RegularCustomerRegistrationView(APIView):
 
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class LoginView(APIView):
+    def post(self, request):
+        serializer = LoginSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.validated_data["user"]
+
+            refresh = RefreshToken.for_user(user)
+            tokens = {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+            }
+
+            response = Response(
+                {"message": "کاربر با موفقیت لاگین شد"}, status=status.HTTP_200_OK
+            )
+
+            for name, token in tokens.items():
+                response.set_cookie(
+                    key=name,
+                    value=token,
+                    httponly=True,
+                    secure=False,
+                    samesite="Lax",
+                )
+
+            return response
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
