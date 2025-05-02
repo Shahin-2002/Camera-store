@@ -2,6 +2,30 @@ from .models import *
 from rest_framework import serializers
 
 
+class EmailVerificationRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("این ایمیل قبلا در سیستم ثبت شده است.")
+        return value
+
+
+class EmailVerificationCodeSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    verification_code = serializers.CharField(max_length=5)
+
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("این ایمیل قبلا در سیستم ثبت شده است.")
+        return value
+
+    def validate_verification_code(self, value):
+        if not value.isdigit() or len(value) != 5:
+            raise serializers.ValidationError("کد تایید وارد شده نامعتبر است.")
+        return value
+
+
 class RegularCustomerRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
