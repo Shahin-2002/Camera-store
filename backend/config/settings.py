@@ -179,3 +179,10 @@ CACHES = {
         "LOCATION": "register-verification",
     }
 }
+
+
+# Custom authentication backends for handling user authentication
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "authentication.authentication.EmailAuthBackend",
+]
