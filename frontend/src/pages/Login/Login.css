@@ -1,0 +1,73 @@
+.login-container {
+  max-width: 400px;
+  width: 90%; /* باعث میشه توی گوشی عرض مناسب داشته باشه */
+  margin: 10vh auto;
+  padding: 2rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.login-form button {
+  background-color: #007f92;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #005c70;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.register-link {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.register-link a {
+  color: #007f92;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.forgot-password-link {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.forgot-password-link a {
+  color: #007f92;
+  text-decoration: none;
+  font-weight: bold;
+}
