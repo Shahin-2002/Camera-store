@@ -1,13 +1,14 @@
-import React from 'react'
+import React from "react";
+import { EmailProvider } from "./EmailContext/EmailContext";
 import { useRoutes } from "react-router-dom";
-
-import route from './routes';
+import { UserProvider } from "./UserContext/UserContext";
+import route from "./routes";
 
 export default function App() {
-  const routes = useRoutes(route)
+  const routes = useRoutes(route);
   return (
-    <>
-      {routes}
-    </>
-  )
+    <UserProvider>
+      <EmailProvider>{routes}</EmailProvider>
+    </UserProvider>
+  );
 }
