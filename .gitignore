@@ -1,6 +1,6 @@
 # Environment  
 .venv/  
-env/  
+.env/  
 venv/  
 
 # Python cache files  
