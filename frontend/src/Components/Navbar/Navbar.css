@@ -9,12 +9,14 @@
 .logo {
   font-size: 2rem;
 }
-.left-navbar{
+.left-navbar {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-direction: column;
+  position: relative;
 }
-.icon-basket{
+.icon-basket {
   font-size: 1.6rem;
   cursor: pointer;
 }
@@ -25,7 +27,7 @@
   font-size: 1.2rem;
   position: relative;
 }
-.menus{
+.menus {
   position: relative;
   display: flex;
 }
@@ -60,7 +62,7 @@
   padding: 10px;
   font-size: 1rem;
 }
-.close-icon{
+.close-icon {
   display: none;
 }
 .login {
@@ -71,9 +73,15 @@
   font-size: 1.1rem;
   transition: all 0.2s;
 }
+.login-link {
+  color: #000;
+  text-decoration: none;
+}
 
 .login:hover {
   background-color: #007f92;
+}
+.login:hover .login-link{
   color: #fff;
 }
 .item-links {
@@ -98,6 +106,46 @@
   display: none;
 }
 
+.notification-user{
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  width: 100%;
+  margin-top: 45px;
+  align-items: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  z-index: 999;
+}
+.container-basket-icon{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.enter-panel{
+  margin-top: 10px;
+  color: #000;
+}
+.logout-panel{
+  color: red;
+}
+.logout-panel,.enter-panel{
+  text-decoration: none;
+
+}
+.form-logout{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.icon-logout{
+  color: red;
+}
+
 @media (max-width: 980px) {
   .input-search {
     display: none;
@@ -118,7 +166,6 @@
     color: white;
     cursor: pointer;
   }
-  
 
   .menu {
     display: none;
@@ -145,14 +192,15 @@
     align-items: center;
     z-index: 1000;
     transform: translateX(0);
-    transition: transform 0.4s cubic-bezier(0.24, 0.71, 0.31, 0.95), opacity 0.4s cubic-bezier(0.25, 0.28, 0.2, 1.17);
+    transition: transform 0.4s cubic-bezier(0.24, 0.71, 0.31, 0.95),
+      opacity 0.4s cubic-bezier(0.25, 0.28, 0.2, 1.17);
   }
-  .all{
+  .all {
     justify-content: space-between;
     opacity: 1;
     padding: 0 20px;
   }
-  .menus{
+  .menus {
     transform: translateX(100%);
   }
   .open-menu {
@@ -164,5 +212,4 @@
   .item-links {
     color: #fff;
   }
-  }
-
+}
