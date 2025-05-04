@@ -10,6 +10,7 @@ from rest_framework.response import Response
 from .authentication import CookieJWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import IsAuthenticated
 
 
 class EmailVerificationRequestView(APIView):
@@ -292,3 +293,12 @@ class PasswordResetView(APIView):
                 )
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [CookieJWTAuthentication]
+
+    def get(self, request):
+        serializer = UserProfileSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
