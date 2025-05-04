@@ -174,3 +174,15 @@ class UserInfoView(APIView):
     def get(self, request):
         user = request.user
         return Response({"username": user.username}, status=status.HTTP_200_OK)
+
+
+class LogoutView(APIView):
+    def post(self, request):
+        response = Response(
+            {"message": "کاربر با موفقیت از سیستم خارج شد."}, status=status.HTTP_200_OK
+        )
+
+        response.delete_cookie("access")
+        response.delete_cookie("refresh")
+
+        return response
