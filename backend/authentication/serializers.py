@@ -74,3 +74,49 @@ class LoginSerializer(serializers.Serializer):
 
         data["user"] = user
         return data
+
+
+class PasswordResetEmailVerificationSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, value):
+        if not User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("ایمیل وارد شده در سیستم وجود ندارد.")
+        return value
+
+
+class PasswordResetEmailVerificationCodeSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    verification_code = serializers.CharField(max_length=5)
+
+    def validate_email(self, value):
+        if not User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("ایمیل وارد شده در سیستم وجود ندارد.")
+        return value
+
+    def validate_verification_code(self, value):
+        if not value.isdigit() or len(value) != 5:
+            raise serializers.ValidationError("کد تایید وارد شده نامعتبر است.")
+        return value
+
+
+class PasswordResetSeializer(serializers.Serializer):
+    email = serializers.EmailField()
+    new_password = serializers.CharField(max_length=16, write_only=True)
+    confirm_password = serializers.CharField(max_length=16, write_only=True)
+
+    def validate(self, attrs):
+        new_password = attrs.get("new_password")
+        confirm_password = attrs.get("confirm_password")
+
+        if not new_password or not confirm_password:
+            raise serializers.ValidationError(
+                "هر دو فیلد رمز عبور جدید و تایید رمز عبور الزامی هستند."
+            )
+
+        if new_password != confirm_password:
+            raise serializers.ValidationError(
+                "رمز عبور جدید و تایید رمز عبور مطابقت ندارند."
+            )
+
+        return attrs
