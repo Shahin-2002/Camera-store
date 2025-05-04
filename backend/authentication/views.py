@@ -150,7 +150,8 @@ class LoginView(APIView):
             }
 
             response = Response(
-                {"message": "کاربر با موفقیت لاگین شد"}, status=status.HTTP_200_OK
+                {"message": "کاربر با موفقیت لاگین شد", "user": user.username},
+                status=status.HTTP_200_OK,
             )
 
             for name, token in tokens.items():
