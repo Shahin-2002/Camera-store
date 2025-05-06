@@ -1,10 +1,11 @@
 import React from 'react';
 import './ProductCard.css';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard({product}) {
   return (
     <>
-      <div className="product-card">
+      <Link to={`/product/${product.id}`} className="product-card">
         <img
           src={product.image}
           alt={product.title}
@@ -16,7 +17,7 @@ export default function ProductCard({product}) {
           <span className="new-price">{product.newPrice.toLocaleString('fa-IR')} تومان</span>
         </div>
         <button className="product-btn">مشاهده</button>
-      </div>
+      </Link>
     </>
   );
 }

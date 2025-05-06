@@ -1,0 +1,92 @@
+.profile-wrapper {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  color: #000;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  direction: rtl;
+}
+
+.title-panel {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 2rem;
+  color: #000;
+}
+.image-profile {
+  width: 100px;
+  height: 100px;
+  border-radius:50%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.profile-form,
+.password-form {
+  margin-bottom: 2rem;
+}
+
+.title-panel-password {
+  margin-bottom: 1rem;
+  color: #000;
+  border-top: 2px solid #00000054;
+  margin-top: 25px;
+  padding-top: 7px;
+}
+
+.form-row {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 15px;
+}
+
+.input-panel-user {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+  font-size: 15px;
+}
+
+input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.upload-btn button {
+  background-color: transparent;
+  color: #000;
+  border: 1px dashed #000;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-btn button:hover {
+  background-color: #27bad1;
+  color: #000;
+}
+
+.save-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007f92;
+  color: #f3f3f3;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-button:hover {
+  background-color: #007f92;
+}

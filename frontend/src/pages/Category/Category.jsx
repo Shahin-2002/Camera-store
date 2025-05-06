@@ -5,6 +5,7 @@ import './Category.css';
 import { CgArrowsVAlt } from 'react-icons/cg';
 import ProductCard from '../../Components/ProductCard/ProductCard';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Category() {
   const sampleProducts = [
@@ -150,6 +151,7 @@ export default function Category() {
         </div>
         <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => (
+            
             <button
               key={i + 1}
               onClick={() => handlePageClick(i + 1)}

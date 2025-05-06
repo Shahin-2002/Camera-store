@@ -5,6 +5,7 @@
   padding: 1rem;
   text-align: center;
   transition: transform 0.3s;
+  text-decoration: none;
 }
 
 .product-card:hover {
