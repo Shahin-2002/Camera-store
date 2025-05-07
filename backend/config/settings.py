@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django_jalali",
     "authentication",
     "store",
+    "mptt",
 ]
 
 MIDDLEWARE = [
