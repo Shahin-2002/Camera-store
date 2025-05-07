@@ -13,3 +13,15 @@ class CategorySerializer(serializers.ModelSerializer):
         if obj.get_children():
             return CategorySerializer(obj.get_children(), many=True).data
         return []
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ["id", "name", "slug", "description", "stock", "price", "category"]
+        read_only_fields = ["id"]
+
+    def validate_price(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("قیمت باید بیشتر از صفر باشد.")
+        return value
