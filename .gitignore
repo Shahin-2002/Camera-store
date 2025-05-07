@@ -6,6 +6,7 @@ backend/.env
 
 
 # Python cache files  
+**/__pycache__/
 backend/authentication/__pycache__/
 backend/authentication/migrations/__pycache__/
 backend/config/__pycache__/
