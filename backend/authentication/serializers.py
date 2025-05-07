@@ -125,5 +125,13 @@ class PasswordResetSeializer(serializers.Serializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "first_name", "last_name", "email", "role"]
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "role",
+            "profile_picture",
+        ]
         read_only_fields = ["id"]
