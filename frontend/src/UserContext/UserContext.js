@@ -7,7 +7,7 @@ export const UserProvider = ({ children }) => {
 
   // وقتی اپ اجرا میشه بررسی کن که کاربر لاگین هست یا نه
   useEffect(() => {
-    fetch('http://localhost:8000/api/auth/user-info', {
+    fetch('http://localhost:8000/api/auth/profile/', {
       method: 'GET',
       credentials: 'include', // برای ارسال کوکی HttpOnly
     })
@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
         return res.json();
       })
       .then((data) => {
-        setUser(data); // فرض: data = { username: 'Ali' }
+        setUser(data);
       })
       .catch((err) => {
         console.log('کاربر لاگین نیست');

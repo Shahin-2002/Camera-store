@@ -10,8 +10,8 @@ import VerifyUser from "./pages/verifyUser/VerifyUser";
 import OTPVerifyPassword from "./pages/OTPVerifyPassword/OTPVerifyPassword";
 import ProductPage from "./pages/Products/ProductPage";
 import UserPanelLayout from "./pages/UserPanel/UserPanelLayout";
-import Profile from "./pages/UserPanel/Profile";
-import Dashboard from "./pages/UserPanel/Dashboard";
+import Profile from "./pages/UserPanel/Profile/Profile";
+import Dashboard from "./pages/UserPanel/Dashboard/Dashboard";
 
 
 

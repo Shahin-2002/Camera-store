@@ -15,12 +15,14 @@
   margin-bottom: 2rem;
   color: #000;
 }
+
 .image-profile {
   width: 100px;
   height: 100px;
-  border-radius:50%;
+  border-radius: 50%;
   margin-bottom: 10px;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .profile-form,
@@ -60,19 +62,26 @@ input:disabled {
   cursor: not-allowed;
 }
 
-.upload-btn button {
-  background-color: transparent;
-  color: #000;
-  border: 1px dashed #000;
-  padding: 0.6rem 1rem;
+.upload-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-button {
+  background-color: #007f92;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
+  font-size: 14px;
 }
 
-.upload-btn button:hover {
-  background-color: #27bad1;
-  color: #000;
+.upload-button:hover {
+  background-color: #006d7d;
 }
 
 .save-button {
@@ -88,5 +97,5 @@ input:disabled {
 }
 
 .save-button:hover {
-  background-color: #007f92;
+  background-color: #006d7d;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../pages/UserPanel/Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import "./UserPanel.css";
 
 export default function UserPanelLayout() {
@@ -8,6 +8,7 @@ export default function UserPanelLayout() {
     <div className="user-panel-layout">
       <Sidebar />
       <div className="user-panel-content">
+        
         <Outlet />
       </div>
     </div>

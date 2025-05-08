@@ -17,9 +17,16 @@ export default function Sidebar() {
           <NavLink to="/">بازگشت به سایت</NavLink>
         </li>
         <li>
+          <NavLink to="/">تیکت ها</NavLink>
+        </li>
+        <li>
+          <NavLink to="/">آخرین خریدها</NavLink>
+        </li>
+        <li>
           <NavLink to="/" style={{color:'red'}}>خروج از حساب</NavLink>
         </li>
       </ul>
     </div>
   );
 }
+

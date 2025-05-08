@@ -1,0 +1,15 @@
+.app {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-top: 80px; /* Space for fixed navbar */
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 80px);
+}
