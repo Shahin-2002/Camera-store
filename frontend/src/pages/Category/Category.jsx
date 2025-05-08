@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import './Category.css';
@@ -8,6 +8,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Category() {
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:8000/api/store/products/')
+      .then(response => response.json())
+      .then(data => {setProducts(data) 
+        console.log(products)
+      });
+  }, []);
+  
   const sampleProducts = [
     {
       id: 1,
@@ -23,100 +33,17 @@ export default function Category() {
       oldPrice: 1400000,
       newPrice: 1150000,
     },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
+
     // بقیه محصولات...
   ];
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;
   const [sortOption, setSortOption] = useState('lowest');
 
-  const totalPages = Math.ceil(sampleProducts.length / productsPerPage);
+  const totalPages = Math.ceil(products.length / productsPerPage);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = sampleProducts.slice(
+  const currentProducts = products.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -145,7 +72,7 @@ export default function Category() {
           </select>
         </div>
         <div className="product-list-container">
-          {currentProducts.map((product, index) => (
+          {products.map((product, index) => (
             <ProductCard key={index + product.title} product={product} />
           ))}
         </div>

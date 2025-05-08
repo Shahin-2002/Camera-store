@@ -15,10 +15,28 @@ class CategorySerializer(serializers.ModelSerializer):
         return []
 
 
+class ProductImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductImage
+        fields = ["id", "product", "image", "alt_text"]
+        read_only_fields = ["id"]
+
+
 class ProductSerializer(serializers.ModelSerializer):
+    images = ProductImageSerializer(many=True)
+
     class Meta:
         model = Product
-        fields = ["id", "name", "slug", "description", "stock", "price", "category"]
+        fields = [
+            "id",
+            "name",
+            "slug",
+            "description",
+            "stock",
+            "price",
+            "category",
+            "images",
+        ]
         read_only_fields = ["id"]
 
     def validate_price(self, value):

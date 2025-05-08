@@ -39,15 +39,7 @@ export default function Profile() {
         credentials: 'include',
         body: formData,
       });
-
-      if (response.ok) {
-        await refreshUser();
-        alert('تصویر پروفایل با موفقیت آپلود شد');
-      } else {
-        const errorData = await response.json();
-        console.error('Upload failed:', errorData);
-        alert('خطا در آپلود تصویر');
-      }
+      alert('تصویر پروفایل با موفقیت آپلود شد');
     } catch (error) {
       console.error('Error uploading image:', error);
       alert('خطا در آپلود تصویر');

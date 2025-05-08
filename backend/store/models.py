@@ -55,3 +55,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(
+        to=Product,
+        on_delete=models.CASCADE,
+        related_name="images",
+        verbose_name="محصول",
+    )
+    image = models.ImageField(upload_to="products/", verbose_name="تصویر")
+    alt_text = models.CharField(
+        max_length=100, null=True, blank=True, default="", verbose_name="متن جایگزین"
+    )
+
+    def __str__(self):
+        return f"Image of {self.product.name}"

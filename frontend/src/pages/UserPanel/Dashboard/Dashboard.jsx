@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTicketAlt, FaUserEdit, FaShoppingBag } from 'react-icons/fa';
 import { useUser } from '../../../UserContext/UserContext';
@@ -11,12 +11,15 @@ const UserProfile = () => {
   useEffect(() => {
     console.log('Dashboard user data:', user);
   }, [user]);
+  
+  const [profileImageUrl, setProfileImageUrl] = useState('/Images/profile-empty.jpg');
 
-  const profileImageUrl = user?.profile_picture 
-    ? user.profile_picture
-    : '/Images/profile-empty.jpg';
+  useEffect(() => {
+    if (user?.profile_picture) {
+      setProfileImageUrl(user.profile_picture);
+    }
+  }, [user?.profile_picture]);
 
-  console.log('Profile image URL:', profileImageUrl);
 
   return (
     <>
