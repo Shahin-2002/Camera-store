@@ -34,6 +34,8 @@ class ProductSerializer(serializers.ModelSerializer):
             "description",
             "stock",
             "price",
+            "off",
+            "new_price",
             "category",
             "images",
         ]

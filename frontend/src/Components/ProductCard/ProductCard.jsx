@@ -14,7 +14,7 @@ export default function ProductCard({product}) {
         <h3 className="product-title">{product.name}</h3>
         <div className="product-prices">
           <span className="old-price">{product.price} تومان</span>
-          <span className="new-price">{product.price} تومان</span>
+          <span className="new-price">{product.new_price} تومان</span>
         </div>
         <button className="product-btn">مشاهده</button>
       </Link>

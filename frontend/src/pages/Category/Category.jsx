@@ -14,28 +14,11 @@ export default function Category() {
     fetch('http://localhost:8000/api/store/products/')
       .then(response => response.json())
       .then(data => {setProducts(data) 
-        console.log(products)
       });
-  }, []);
-  
-  const sampleProducts = [
-    {
-      id: 1,
-      title: 'دوربین مداربسته AHD',
-      image: '/images/camera3.jpg',
-      oldPrice: 1200000,
-      newPrice: 950000,
-    },
-    {
-      id: 2,
-      title: 'دوربین وای‌فای',
-      image: '/images/camera2.jpg',
-      oldPrice: 1400000,
-      newPrice: 1150000,
-    },
+    }, []);
+    
+    console.log(products)
 
-    // بقیه محصولات...
-  ];
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;
   const [sortOption, setSortOption] = useState('lowest');
