@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "authentication",
     "store",
     "mptt",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -158,6 +159,15 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+# Settings for drf-spectacular, used for generating API schema and documentation
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Camera Store API",
+    "DESCRIPTION": "API documentation for the Camera Store project.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
 
 
