@@ -162,6 +162,15 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
+# Settings for drf-spectacular, used for generating API schema and documentation
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Camera Store API",
+    "DESCRIPTION": "API documentation for the Camera Store project.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
 # Configuration for drf-spectacular, used for generating API documentation
 SPECTACULAR_SETTINGS = {
     "TITLE": "Camera Store API",
