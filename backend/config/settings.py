@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     "store",
     "mptt",
     "drf_spectacular",
-    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
