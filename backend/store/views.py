@@ -40,3 +40,8 @@ class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
             self.permission_classes = [IsAdminUser]
 
         return super().get_permissions()
+
+
+class LatestProductsListView(generics.ListAPIView):
+    queryset = Product.objects.all()[:3]
+    serializer_class = ProductSerializer
