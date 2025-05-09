@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAdminUser
 from authentication.authentication import CookieJWTAuthentication
+from .filters import ProductFilter
 
 
 class CategoryTreeView(APIView):
@@ -18,6 +19,7 @@ class ProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     authentication_classes = [CookieJWTAuthentication]
+    filterset_class = ProductFilter
 
     def get_permissions(self):
         self.permission_classes = [AllowAny]
