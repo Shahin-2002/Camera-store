@@ -57,23 +57,30 @@
   min-width: 150px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   height: 150px;
+  padding: 0;
   width: 150px;
 }
 .sub-menu-item-2 {
   position: absolute ;
   top: 0;
-  right: 127%;
+  right: 100%;
   background-color: #fff;
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   transition: 0.3s ease;
   min-width: 150px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   list-style-type: none;
+  padding: 0;
+}
+.item-links-2{
+  text-decoration: none;
+  color: black;
 }
 .sub-menu-item:hover .sub-menu-item-2 {
   opacity: 1;
   visibility: visible;
+  
   
 }
 .menu-items, .sub-menu-item, .sub-menu-item-2-item {
