@@ -19,7 +19,7 @@
 }
 
 .product-title {
-  font-size: 1.1rem;
+  font-size: 16px !important;
   margin: 0.5rem 0;
   color: #333;
 }
@@ -27,7 +27,6 @@
 .product-prices {
   display: flex;
   justify-content: center;
-  gap: 1rem;
   margin-bottom: 1rem;
 }
 

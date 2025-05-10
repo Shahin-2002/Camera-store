@@ -60,16 +60,53 @@ export default function Navbar() {
         <div className={`menus ${!isOpenMenu ? "open" : ""}`}>
           <IoMdClose className="close-icon" onClick={toggleMenu} />
           <ul className={`menu ${!isOpenMenu ? "open-menu" : ""}`}>
-            <li className="menu-items">
+            <li className="menu-items ">
               <Link to="/" className="item-links">
                 صفحه اصلی
               </Link>
             </li>
-            <li className="menu-items">
-              <Link to="/category" className="item-links">
-                {" "}
-                محصولات
+            <li className="menu-items category-menu">
+              <Link to="/category" className="item-links ">
+                دسته بندی ها
               </Link>
+              <ul className="sub-menu">
+                <li className="sub-menu-item">
+                  <Link to="/category/1" className="item-links-1">
+                    محصولات
+                  </Link>
+                  <ul className="sub-menu-item-2">
+                    <li className="sub-menu-item-2-item">
+                      <Link to="/category/1" className="item-links-2">زیر منو</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sub-menu-item">
+                  <Link to="/category/1" className="item-links-1">
+                    محصولات
+                  </Link>
+                </li>
+                <li className="sub-menu-item">
+                  <Link to="/category/1" className="item-links-1">
+                    محصولات
+                  </Link>
+                  <ul className="sub-menu-item-2">
+                    <li className="sub-menu-item-2-item">
+                      <Link to="/category/1" className="item-links-2">زیر منو</Link>
+                    </li>
+                    <li className="sub-menu-item-2-item">
+                      <Link to="/category/1" className="item-links-2">زیر منو</Link>
+                    </li>
+                    <li className="sub-menu-item-2-item">
+                      <Link to="/category/1" className="item-links-2">زیر منو</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sub-menu-item">
+                  <Link to="/category/1" className="item-links-1 ">
+                    محصولات
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li className="menu-items">
               <a href="#" className="item-links">

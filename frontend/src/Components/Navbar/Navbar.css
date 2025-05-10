@@ -26,7 +26,94 @@
   gap: 2rem;
   font-size: 1.2rem;
   position: relative;
-  margin: 0 ;
+  margin: 0;
+}
+.sub-menu {
+  /* position: absolute;
+  background-color: #fff;
+
+  top: 50px;
+  right: 60px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.5s ease; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  /* opacity: 0;
+  visibility: hidden; */
+  transition: 0.3s ease;
+  z-index: 10;
+  min-width: 150px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  height: 150px;
+  width: 150px;
+}
+.sub-menu-item-2 {
+  position: absolute ;
+  top: 0;
+  right: 127%;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  min-width: 150px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  list-style-type: none;
+}
+.sub-menu-item:hover .sub-menu-item-2 {
+  opacity: 1;
+  visibility: visible;
+  
+}
+.menu-items, .sub-menu-item, .sub-menu-item-2-item {
+  position: relative;
+  list-style-type: none;
+}
+/* اسکرول بار افقی و عمودی */
+.sub-menu::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track (مسیر اسکرول‌بار) */
+.sub-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle (دسته اسکرول‌بار) */
+.sub-menu::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle hover */
+.sub-menu::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.category-menu:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  
+}
+.item-links-1{
+  text-decoration: none;
+  color: black; 
+  width: 100%;
+}
+.sub-menu-item:hover{
+  background-color: rgba(255, 255, 255, 0.1);;
 }
 .menus {
   position: relative;
@@ -82,7 +169,7 @@
 .login:hover {
   background-color: #007f92;
 }
-.login:hover .login-link{
+.login:hover .login-link {
   color: #fff;
 }
 .item-links {
@@ -107,7 +194,7 @@
   display: none;
 }
 
-.notification-user{
+.notification-user {
   border-radius: 10px;
   margin-top: 10px;
   height: 100px;
@@ -122,28 +209,28 @@
   background-color: #fff;
   z-index: 999;
 }
-.container-basket-icon{
+.container-basket-icon {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.enter-panel{
+.enter-panel {
   margin-top: 10px;
   color: #000;
 }
-.logout-panel{
+.logout-panel {
   color: red;
 }
-.logout-panel,.enter-panel{
+.logout-panel,
+.enter-panel {
   text-decoration: none;
-
 }
-.form-logout{
+.form-logout {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.icon-logout{
+.icon-logout {
   color: red;
 }
 
@@ -214,3 +301,6 @@
     color: #fff;
   }
 }
+
+
+
