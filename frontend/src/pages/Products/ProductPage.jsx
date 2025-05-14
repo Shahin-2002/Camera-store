@@ -33,7 +33,7 @@ export default function ProductPage() {
           <img src={product.images[0].image} alt={product.images[0].alt_text} />
         </div>
         <div className="product-details">
-          <h1 className="product-title">{product.title}</h1>
+          <h1 className="product-title">{product.name}</h1>
           <p className="product-description">{product.description}</p>
           <div className="product-pricing">
             <span className="old-price">

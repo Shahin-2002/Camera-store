@@ -6,6 +6,8 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAdminUser
 from authentication.authentication import CookieJWTAuthentication
 from .filters import ProductFilter
+from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class CategoryTreeView(APIView):
@@ -20,6 +22,13 @@ class ProductListCreateView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     authentication_classes = [CookieJWTAuthentication]
     filterset_class = ProductFilter
+    filter_backends = [
+        DjangoFilterBackend,
+        filters.SearchFilter,
+        filters.OrderingFilter,
+    ]
+    search_fields = ["name", "description"]
+    ordering_fields = ["new_price", "created_at"]
 
     def get_permissions(self):
         self.permission_classes = [AllowAny]

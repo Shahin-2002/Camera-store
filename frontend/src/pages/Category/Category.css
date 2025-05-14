@@ -11,15 +11,6 @@
   gap: 0.5rem;
 }
 
-.page-button {
-  padding: 8px 12px;
-  border: none;
-  background-color: #eee;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
 .page-button.active {
   background-color: #007bff;
   color: white;
@@ -64,4 +55,59 @@
   border: 1px solid #ccc;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.prev-next-button:hover:not(:disabled),
+.page-button:hover {
+  background-color: #f0f0f0;
+}
+
+.prev-next-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.prev-next-button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+.loading-message {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* نسخه ریسپانسیو برای نمایش در موبایل */
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters-container label {
+    margin-bottom: 0.25rem;
+  }
+
+  .filters-container input,
+  .filters-container select {
+    width: 100%;
+  }
 }

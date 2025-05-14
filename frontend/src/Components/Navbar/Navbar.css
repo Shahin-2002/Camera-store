@@ -29,61 +29,60 @@
   margin: 0;
 }
 .sub-menu {
-  /* position: absolute;
-  background-color: #fff;
-
-  top: 50px;
-  right: 60px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  overflow: auto;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: all 0.5s ease; */
   display: flex;
   flex-direction: column;
   gap: 8px;
   position: absolute;
   top: 100%;
-  left: 0;
   background-color: #fff;
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   transition: 0.3s ease;
   z-index: 10;
   min-width: 150px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  height: 150px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   padding: 0;
-  width: 150px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 250px;
 }
 .sub-menu-item-2 {
-  position: absolute ;
+  position: absolute;
   top: 0;
   right: 100%;
   background-color: #fff;
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   transition: 0.3s ease;
   min-width: 150px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   list-style-type: none;
   padding: 0;
+  border-radius: 10px;
 }
-.item-links-2{
+.sub-menu-item {
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.item-links-2 {
   text-decoration: none;
   color: black;
+  width: 100%;
+  display: flex;
 }
+
 .sub-menu-item:hover .sub-menu-item-2 {
   opacity: 1;
   visibility: visible;
-  
-  
 }
-.menu-items, .sub-menu-item, .sub-menu-item-2-item {
+.sub-menu-item-2-item {
+  border-radius: 10px;
+  padding: 0 10px;
+  width: 200px;
+}
+.menu-items,
+.sub-menu-item,
+.sub-menu-item-2-item {
   position: relative;
   list-style-type: none;
 }
@@ -112,15 +111,20 @@
 .category-menu:hover .sub-menu {
   opacity: 1;
   visibility: visible;
-  
 }
-.item-links-1{
+.item-links-1 {
   text-decoration: none;
-  color: black; 
+  color: black;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.sub-menu-item:hover{
-  background-color: rgba(255, 255, 255, 0.1);;
+.sub-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.sub-menu-item-2-item:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .menus {
   position: relative;
@@ -309,5 +313,25 @@
   }
 }
 
+.live-search-results {
+  position: absolute;
+  top: 45px;
+  background: white;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  direction: rtl;
+  text-align: right;
+}
 
+.live-search-results li {
+  padding: 10px;
+  cursor: pointer;
+}
 
+.live-search-results li:hover {
+  background-color: #f0f0f0;
+}
