@@ -27,7 +27,7 @@ class ProductListCreateView(generics.ListCreateAPIView):
         filters.SearchFilter,
         filters.OrderingFilter,
     ]
-    search_fields = ["name", "description"]
+    search_fields = ["name"]
     ordering_fields = ["new_price", "created_at"]
 
     def get_permissions(self):
