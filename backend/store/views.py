@@ -38,6 +38,18 @@ class ProductListCreateView(generics.ListCreateAPIView):
 
         return super().get_permissions()
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        category_slug = self.request.query_params.get("category")
+        if category_slug:
+            try:
+                category = Category.objects.get(slug=category_slug)
+                descendants = category.get_descendants(include_self=True)
+                queryset = queryset.filter(category__in=descendants)
+            except Category.DoesNotExist:
+                queryset = queryset.none()
+        return queryset
+
 
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
