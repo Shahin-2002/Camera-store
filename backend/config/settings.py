@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "django_jalali",
     "authentication",
     "store",
-    "cart" "mptt",
+    "cart",
+    "mptt",
     "drf_spectacular",
     "django_filters",
 ]
