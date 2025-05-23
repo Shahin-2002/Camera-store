@@ -5,8 +5,8 @@ from store.serializers import ProductSerializer
 
 class CartItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer()
-    price = serializers.ReadOnlyField()
-    total_price = serializers.ReadOnlyField()
+    price = serializers.SerializerMethodField()
+    total_price = serializers.SerializerMethodField()
 
     class Meta:
         model = CartItem
@@ -23,8 +23,15 @@ class CartItemSerializer(serializers.ModelSerializer):
         instance.save()
         return super().update(instance, validated_data)
 
+    def get_price(self, obj):
+        return obj.product.new_price
+
+    def get_total_price(self, obj):
+        return obj.quantity * obj.product.new_price
+
 
 class CartSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
     items = CartItemSerializer(many=True, read_only=True)
     cart_total_price = serializers.SerializerMethodField()
 
