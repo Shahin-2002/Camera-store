@@ -5,7 +5,6 @@ from store.serializers import ProductSerializer
 
 class CartItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer()
-    price = serializers.SerializerMethodField()
     total_price = serializers.SerializerMethodField()
 
     class Meta:
@@ -23,11 +22,8 @@ class CartItemSerializer(serializers.ModelSerializer):
         instance.save()
         return super().update(instance, validated_data)
 
-    def get_price(self, obj):
-        return obj.product.new_price
-
     def get_total_price(self, obj):
-        return obj.quantity * obj.product.new_price
+        return obj.total_price
 
 
 class CartSerializer(serializers.ModelSerializer):
@@ -37,8 +33,8 @@ class CartSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cart
-        fields = ["id", "user", "is_active", "items", "cart_total_price"]
+        fields = ["id", "user", "items", "cart_total_price"]
         read_only_fields = ["items", "cart_total_price"]
 
     def get_cart_total_price(self, obj):
-        return sum(item.total_price for item in obj.items.all())
+        return obj.cart_total_price
