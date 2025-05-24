@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "authentication",
     "store",
     "cart",
+    "orders",
     "mptt",
     "drf_spectacular",
     "django_filters",
