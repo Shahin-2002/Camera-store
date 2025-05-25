@@ -28,10 +28,12 @@ class Order(models.Model):
     address = models.TextField()
     postal_code = models.CharField(max_length=10)
 
-    is_paid = models.BooleanField(default=False)
-
     def __str__(self):
-        return f"Order {self.id} - {self.user.username}"
+        return f"Order {self.order_id} - {self.user.username}"
+
+    @property
+    def total_price(self):
+        return sum(item.price * item.quantity for item in self.items.all())
 
 
 class OrderItem(models.Model):
