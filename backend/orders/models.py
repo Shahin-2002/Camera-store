@@ -16,7 +16,6 @@ class Order(models.Model):
     order_id = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
-    cart = models.OneToOneField(Cart, on_delete=models.CASCADE, related_name="orders")
     status = models.CharField(
         max_length=20, choices=OrderStatus.choices, default=OrderStatus.PENDING
     )

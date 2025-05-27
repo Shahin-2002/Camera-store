@@ -31,6 +31,7 @@ urlpatterns = [
     path("api/auth/", include("authentication.urls", namespace="authentication")),
     path("api/store/", include("store.urls", namespace="store")),
     path("api/", include("cart.urls", namespace="cart")),
+    path("api/orders/", include("orders.urls", namespace="orders")),
     # API documentation
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
