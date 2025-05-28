@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تأیید سفارش</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            direction: rtl;
+        }
+        .header {
+            background-color: #1976d2;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .content {
+            padding: 30px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .order-code {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-right: 4px solid #1976d2;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        .footer {
+            background-color: #eeeeee;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #777;
+        }
+        span {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">ثبت سفارش موفق</div>
+    <div class="content">
+        <p>کاربر گرامی،</p>
+        <p>سفارش شما با موفقیت در فروشگاه <strong>دوربین شهر</strong> ثبت شد.</p>
+        <div class="order-code">
+            کد سفارش: <span>{{ order_id }}</span>
+        </div>
+        <p>در صورت نیاز به پیگیری، کد بالا را نزد خود نگه دارید.</p>
+        <p>از خرید شما سپاسگزاریم 🙏</p>
+    </div>
+    <div class="footer">
+        فروشگاه دوربین شهر | www.camera-city.ir
+    </div>
+</div>
+</body>
+</html>
