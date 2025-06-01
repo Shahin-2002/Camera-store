@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <>
@@ -16,19 +16,19 @@ export default function Footer() {
               <h6>لینک‌ها</h6>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#" className="footer-link">
+                  <Link to="/" className="footer-link">
                     خانه
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="footer-link">
+                  <Link to="/category" className="footer-link">
                     محصولات
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="footer-link">
+                    <Link to="/contact" className="footer-link">
                     تماس با ما
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

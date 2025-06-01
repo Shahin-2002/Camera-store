@@ -1,0 +1,129 @@
+.mini-cart {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 300px;
+  margin-top: 1rem;
+  width: 300px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  z-index: 999;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: sans-serif;
+  overflow: auto;
+}
+
+.mini-cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.mini-cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.mini-cart-item div {
+  flex-grow: 1;
+}
+
+.mini-cart-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.mini-cart-item p:nth-child(2) {
+  font-weight: bold;
+  margin-top: 5px;
+  color: #007bff;
+}
+
+.mini-cart-item div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.mini-cart-item button {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 5px 8px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mini-cart-item button:hover {
+  background-color: #ddd;
+}
+
+.mini-cart-item span {
+  font-size: 14px;
+  margin: 0 4px;
+}
+
+.mini-cart-item > button:last-child {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.checkout-btn:hover {
+  background-color: #0056b3;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 10;
+}
+
+
+.caption-cart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkout-btn-link{
+  text-decoration: none;
+  color: white;
+}
+

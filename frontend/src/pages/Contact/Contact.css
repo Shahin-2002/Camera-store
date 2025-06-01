@@ -1,0 +1,119 @@
+.contact-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .contact-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #333;
+    letter-spacing: 1.2px;
+  }
+  
+  .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+  }
+  
+  .contact-form {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .contact-form label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #008cff;
+    box-shadow: 0 0 6px rgba(0, 140, 255, 0.3);
+  }
+  
+  .contact-form button {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #4a90e2, #008cff);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 140, 255, 0.4);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background: linear-gradient(135deg, #006fcc, #005fa3);
+    box-shadow: 0 8px 20px rgba(0, 95, 163, 0.6);
+  }
+  
+  .contact-info {
+    flex: 1 1 350px;
+    background-color: #f5f9ff;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(74,144,226,0.1);
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .contact-info h2 {
+    margin-bottom: 1.3rem;
+    font-weight: 700;
+    color: #004a99;
+    letter-spacing: 0.8px;
+    font-size: 1.8rem;
+  }
+  
+  .contact-info p {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .contact-info p::before {
+    content: '';
+  }
+  
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column;
+    }
+  
+    .contact-form, .contact-info {
+      flex: 1 1 100%;
+    }
+  }
+  

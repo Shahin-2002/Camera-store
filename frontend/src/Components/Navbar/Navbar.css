@@ -133,6 +133,7 @@
 .item-links {
   text-decoration: none;
   color: black;
+  outline: none;
 }
 .icon-search {
   width: 35px;
@@ -268,6 +269,7 @@
 
   .menu {
     display: none;
+    padding: 1rem;
   }
 
   .logo {
@@ -314,6 +316,7 @@
 }
 
 .live-search-results {
+  padding: 0;
   position: absolute;
   top: 45px;
   background: white;
@@ -334,4 +337,57 @@
 
 .live-search-results li:hover {
   background-color: #f0f0f0;
+}
+
+.mini-cart-dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 431px) {
+  .sub-menu {
+    position: static;
+    width: 0;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .sub-menu-item-2 {
+    position: static;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .sub-menu-item {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      182deg,
+      rgb(39 123 168 / 0%) 0%,
+      rgb(41 44 48 / 0%) 50%,
+      rgb(30 33 74 / 0%) 100%
+    ) !important;
+  }
+  .item-links-1 {
+    color: #fff;
+    font-size: 1rem;
+  }
+  .item-links-2 {
+    color: #fff;
+    font-size: 1rem;
+  }
+  .sub-menu-item-2-item {
+    background: linear-gradient(
+      182deg,
+      rgb(39 123 168 / 0%) 0%,
+      rgb(41 44 48 / 0%) 50%,
+      rgb(30 33 74 / 0%) 100%
+    ) !important;
+    list-style-type: disclosure-closed;
+    color: white;
+  }
 }

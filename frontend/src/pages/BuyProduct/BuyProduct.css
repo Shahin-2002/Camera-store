@@ -1,0 +1,157 @@
+.checkout-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.checkout-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.checkout-item {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.checkout-item:hover {
+  transform: translateY(-3px);
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.product-discount {
+  font-size: 14px;
+  color: #f44336;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.product-price-original {
+  font-size: 14px;
+  color: #777;
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.product-price-discounted {
+  font-size: 16px;
+  color: #2e7d32;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.product-quantity {
+  font-size: 14px;
+  color: #555;
+}
+
+.checkout-total {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px dashed #ccc;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a237e;
+  text-align: right;
+}
+
+.checkout-loading {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 50px;
+}
+.checkout-pay-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px 0;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.checkout-pay-btn:hover {
+  background-color: #1558c0;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    padding: 20px 12px;
+  }
+
+  .checkout-title {
+    font-size: 22px;
+  }
+
+  .checkout-item {
+    padding: 16px;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+
+  .product-discount,
+  .product-price-original,
+  .product-price-discounted,
+  .product-quantity {
+    font-size: 13px;
+  }
+
+  .checkout-total {
+    font-size: 18px;
+  }
+
+  .checkout-pay-btn {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-name {
+    font-size: 16px;
+  }
+
+  .checkout-title {
+    font-size: 20px;
+  }
+
+  .checkout-total {
+    font-size: 16px;
+  }
+
+  .checkout-pay-btn {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+}

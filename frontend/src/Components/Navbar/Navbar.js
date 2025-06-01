@@ -12,10 +12,10 @@ import { useRef } from "react";
 import { debounce } from "lodash";
 import { useCallback } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
+import MiniCart from "../MiniCart/MiniCart";
 
 
-
-
+import { useCart } from "../../hooks/useCart";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,13 +31,15 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
+  const [showMiniCart, setShowMiniCart] = useState(false);
+  const isMobile = window.innerWidth <= 430;
+
 
   useEffect(() => {
     fetch("http://localhost:8000/api/store/categories/")
       .then((res) => res.json())
       .then((data) => {
         setAllMenu(data);
-        console.log(data);
       });
   }, []);
 
@@ -59,7 +61,6 @@ export default function Navbar() {
     }
   };
   useEffect(() => {
-    console.log("مقدار جدید searchResults:", searchResults);
   }, [searchResults]);
 
   // استفاده از debounce برای کنترل درخواست‌ها
@@ -101,13 +102,41 @@ export default function Navbar() {
     };
   }, []);
 
+  const miniCartTimeout = useRef(null);
+
+  const handleMiniCartEnter = () => {
+    clearTimeout(miniCartTimeout.current);
+    setShowMiniCart(true);
+  };
+
+  const handleMiniCartLeave = () => {
+    miniCartTimeout.current = setTimeout(() => {
+      setShowMiniCart(false);
+    }, 300); // ۳۰۰ میلی‌ثانیه تأخیر
+  };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(miniCartTimeout.current);
+    };
+  }, []);
+
+  const { data: cartData, isLoading } = useCart();
+
+  const cartCount = cartData?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
+  
+
   return (
     <>
       <div className="all">
         <IoMdMenu className="icon-menu" onClick={toggleMenu} />
         <div className="logo">Logo</div>
         <div className={`menus ${!isOpenMenu ? "open" : ""}`}>
-          <IoMdClose className="close-icon" onClick={toggleMenu} />
+          {!isOpenMenu ? (
+            <IoMdClose className="close-icon" onClick={toggleMenu} />
+          ) : (
+            ""
+          )}
           <ul className={`menu ${!isOpenMenu ? "open-menu" : ""}`}>
             <li className="menu-items ">
               <Link to="/" className="item-links">
@@ -123,11 +152,7 @@ export default function Navbar() {
                   <li className="sub-menu-item" key={item.id}>
                     <Link to={`/category/${item.id}`} className="item-links-1">
                       {item.name}
-                      {
-                        item.children.length > 0 && (
-                          <FaArrowLeft />
-                        )
-                      }
+                      {!isMobile && item.children.length > 0 && <FaArrowLeft />}
                     </Link>
 
                     {Array.isArray(item.children) &&
@@ -140,7 +165,6 @@ export default function Navbar() {
                                 className="item-links-2"
                               >
                                 {child.name}
-                                
                               </Link>
                             </li>
                           ))}
@@ -151,9 +175,9 @@ export default function Navbar() {
               </ul>
             </li>
             <li className="menu-items">
-              <a href="#" className="item-links">
+              <Link to="/contact" className="item-links">
                 ارتباط با ما
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -187,7 +211,27 @@ export default function Navbar() {
         </div>
         <div className="left-navbar">
           <div className="container-basket-icon">
-            <SlBasket className="icon-basket" />
+            <SlBasket
+              className="icon-basket"
+              onMouseEnter={!isMobile ? handleMiniCartEnter : undefined}
+              onMouseLeave={!isMobile ? handleMiniCartLeave : undefined}
+              onClick={
+                isMobile ? () => setShowMiniCart((prev) => !prev) : undefined
+              }
+              style={{ position: "relative" }} // مهم برای نمایش MiniCart کنار آیکون
+            />
+            {cartData?.items?.length > 0 && (
+              <span className="cart-count-badge">{cartCount}</span>
+            )}
+            {showMiniCart && (
+              <div
+                className="mini-cart-dropdown"
+                onMouseEnter={!isMobile ? handleMiniCartEnter : undefined}
+                onMouseLeave={!isMobile ? handleMiniCartLeave : undefined}
+              >
+                <MiniCart cartItems={cartData?.items || []} />
+              </div>
+            )}
             <button
               className="login"
               onClick={() => setDropShow((prev) => !prev)}

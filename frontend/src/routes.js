@@ -12,6 +12,8 @@ import ProductPage from "./pages/Products/ProductPage";
 import UserPanelLayout from "./pages/UserPanel/UserPanelLayout";
 import Profile from "./pages/UserPanel/Profile/Profile";
 import Dashboard from "./pages/UserPanel/Dashboard/Dashboard";
+import BuyProduct from "./pages/BuyProduct/BuyProduct";
+import Contact from "./pages/Contact/Contact";
 
 
 
@@ -32,7 +34,8 @@ const route = [
   { path: "*", element: <NotFound /> },
   { path: "/verify-user", element: <VerifyUser /> },
   { path: "/product/:id", element: <ProductPage /> },
-
+  { path: "/buy-product", element: <BuyProduct /> },
+  { path: "/contact", element: <Contact/> },
 
   {
     path: "/user-panel",

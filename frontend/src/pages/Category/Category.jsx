@@ -32,6 +32,7 @@ export default function Category() {
         `http://localhost:8000/api/store/products/?${params.toString()}`
       );
       const data = await response.json();
+      
 
       setProducts(data.results || []); // اگر از DRF استفاده می‌کنی
       setTotalPages(Math.ceil(data.count / 10)); // یا هر عددی که صفحه‌بندی‌ت داره
@@ -47,15 +48,8 @@ export default function Category() {
     fetchProducts();
   }, [currentPage, sortOption, minPrice,maxPrice]);
 
-  console.log(products);
+ 
 
-  const handlePageClick = (pageNum) => {
-    setCurrentPage(pageNum);
-  };
-
-  const handleSortChange = (event) => {
-    setSortOption(event.target.value);
-  };
   return (
     <>
       <Navbar />
@@ -103,7 +97,7 @@ export default function Category() {
           ) : (
             <div className="product-list-container">
               {products.map((product, index) => (
-                <ProductCard key={index + product.title} product={product} />
+                <ProductCard key={index } product={product} />
               ))}
             </div>
           )}
