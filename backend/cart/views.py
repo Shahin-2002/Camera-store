@@ -19,7 +19,7 @@ class CartViewSet(viewsets.ViewSet):
         GET /cart/  → Display the current user's cart
         """
         cart = self.get_cart_service().cart
-        serializer = CartSerializer(cart)
+        serializer = CartSerializer(cart, context={"request": request})
         return Response(serializer.data)
 
     def create(self, request):
@@ -32,7 +32,7 @@ class CartViewSet(viewsets.ViewSet):
         cart = self.get_cart_service()
         cart.add_item(product_id, quantity)
 
-        serializer = CartSerializer(cart.cart)
+        serializer = CartSerializer(cart.cart, context={"request": request})
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk=None):
@@ -43,7 +43,7 @@ class CartViewSet(viewsets.ViewSet):
         cart = self.get_cart_service()
         cart.update_item(product_id=pk, quantity=quantity)
 
-        serializer = CartSerializer(cart.cart)
+        serializer = CartSerializer(cart.cart, context={"request": request})
         return Response(serializer.data)
 
     def destroy(self, request, pk=None):
@@ -53,7 +53,7 @@ class CartViewSet(viewsets.ViewSet):
         cart = self.get_cart_service()
         cart.remove_item(product_id=pk)
 
-        serializer = CartSerializer(cart.cart)
+        serializer = CartSerializer(cart.cart, context={"request": request})
         return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
 
     @action(detail=False, methods=["post"])
@@ -63,5 +63,5 @@ class CartViewSet(viewsets.ViewSet):
         """
         cart = self.get_cart_service()
         cart.clear_cart()
-        serializer = CartSerializer(cart.cart)
+        serializer = CartSerializer(cart.cart, context={"request": request})
         return Response(serializer.data)
