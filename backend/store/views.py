@@ -65,6 +65,8 @@ class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
         return super().get_permissions()
 
 
-class LatestProductsListView(generics.ListAPIView):
-    queryset = Product.objects.all()[:3]
+class LatestProductsView(generics.ListAPIView):
+    queryset = Product.objects.all().order_by("-created_at")[:10]
     serializer_class = ProductSerializer
+    authentication_classes = [CookieJWTAuthentication]
+    permission_classes = [AllowAny]
