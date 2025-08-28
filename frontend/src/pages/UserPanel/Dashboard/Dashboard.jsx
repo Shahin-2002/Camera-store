@@ -6,20 +6,37 @@ import './Dashboard.css';
 import NavbarPanel from '../NavbarPanel/NavbarPanel';
 
 const UserProfile = () => {
-  const { user } = useUser();
-  
-  useEffect(() => {
-    console.log('Dashboard user data:', user);
-  }, [user]);
-  
-  const [profileImageUrl, setProfileImageUrl] = useState('/Images/profile-empty.jpg');
+  const { user, setUser } = useUser(); // setUser اضافه شد
+  const [profileImageUrl, setProfileImageUrl] = useState(
+    '/Images/profile-empty.jpg'
+  );
 
+  // تابع برای گرفتن اطلاعات کاربر بدون نیاز به رفرش
+  const loadUserData = async () => {
+    try {
+      const res = await fetch('http://localhost:8000/api/auth/profile/', {
+        method: 'GET',
+        credentials: 'include',
+      });
+      if (!res.ok) throw new Error('Not authenticated');
+      const data = await res.json();
+      setUser(data);
+      if (data.profile_picture) setProfileImageUrl(data.profile_picture);
+    } catch (err) {
+      console.log('کاربر لاگین نیست');
+    }
+  };
+
+  useEffect(() => {
+    loadUserData();
+  }, []);
+
+  // بروزرسانی عکس وقتی user تغییر کرد
   useEffect(() => {
     if (user?.profile_picture) {
       setProfileImageUrl(user.profile_picture);
     }
   }, [user?.profile_picture]);
-
 
   return (
     <>
@@ -27,12 +44,11 @@ const UserProfile = () => {
       <div className="user-profile-container">
         <div className="profile-header">
           <div className="profile-image-container">
-            <img 
+            <img
               src={profileImageUrl}
-              alt="User Profile" 
+              alt="User Profile"
               className="profile-image"
               onError={(e) => {
-                console.error('Image failed to load:', e);
                 e.target.src = '/Images/profile-empty.jpg';
               }}
             />
@@ -41,19 +57,17 @@ const UserProfile = () => {
         </div>
 
         <div className="profile-links">
-          <Link to="/tickets" className="profile-link">
-            <FaTicketAlt className="link-icon" />
-            <span>تیکت زدن</span>
-          </Link>
-
           <Link to="/user-panel/profile" className="profile-link">
             <FaUserEdit className="link-icon" />
             <span>ویرایش حساب</span>
           </Link>
-
           <Link to="/recent-purchases" className="profile-link">
             <FaShoppingBag className="link-icon" />
             <span>آخرین خریدها</span>
+          </Link>
+          <Link to="/tickets" className="profile-link">
+            <FaTicketAlt className="link-icon" />
+            <span>تیکت زدن</span>
           </Link>
         </div>
       </div>

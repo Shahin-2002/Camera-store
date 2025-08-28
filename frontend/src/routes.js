@@ -14,12 +14,7 @@ import Profile from "./pages/UserPanel/Profile/Profile";
 import Dashboard from "./pages/UserPanel/Dashboard/Dashboard";
 import BuyProduct from "./pages/BuyProduct/BuyProduct";
 import Contact from "./pages/Contact/Contact";
-
-
-
-
-
-
+import ComingSoon from "./pages/UserPanel/Coming/ComingSoon";
 
 const route = [
   { path: "/", element: <Home /> },
@@ -35,7 +30,7 @@ const route = [
   { path: "/verify-user", element: <VerifyUser /> },
   { path: "/product/:id", element: <ProductPage /> },
   { path: "/buy-product", element: <BuyProduct /> },
-  { path: "/contact", element: <Contact/> },
+  { path: "/contact", element: <Contact /> },
 
   {
     path: "/user-panel",
@@ -43,6 +38,11 @@ const route = [
     children: [
       { path: "dashboard", element: <Dashboard /> },
       { path: "profile", element: <Profile /> },
+      { path: "tickets", element: <ComingSoon title="تیکت ها" /> },
+      {
+        path: "recent-purchases",
+        element: <ComingSoon title="آخرین خریدها" />,
+      },
     ],
   },
 ];

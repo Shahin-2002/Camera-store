@@ -4,40 +4,55 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 250px; /* محدودیت عرض برای واکنش‌گرایی */
 }
 
 .product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .product-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 1 / 1; /* نسبت مربعی */
   object-fit: contain;
+  margin-bottom: 0.5rem;
 }
 
 .product-title {
-  font-size: 16px !important;
+  font-size: 16px;
   margin: 0.5rem 0;
   color: #333;
+  font-weight: 500;
+  line-height: 1.4;
+  height: 40px; /* ثابت کردن ارتفاع برای چینش یکسان */
+  overflow: hidden;
 }
 
 .product-prices {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .old-price {
   text-decoration: line-through;
   color: gray;
+  font-size: 14px;
 }
 
 .new-price {
   color: #e63946;
   font-weight: bold;
+  font-size: 15px;
 }
 
 .product-btn {
@@ -47,4 +62,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-btn:hover {
+  background-color: #457b9d;
 }
