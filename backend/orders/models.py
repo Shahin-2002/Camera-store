@@ -27,6 +27,10 @@ class Order(models.Model):
     address = models.TextField()
     postal_code = models.CharField(max_length=10)
 
+    class Meta:
+        verbose_name = "سفارش"
+        verbose_name_plural = "سفارشات"
+
     def __str__(self):
         return f"Order {self.order_id} - {self.user.username}"
 
@@ -42,6 +46,10 @@ class OrderItem(models.Model):
     )
     quantity = models.PositiveIntegerField(default=1)
     price = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        verbose_name = "آیتم سفارش"
+        verbose_name_plural = "آیتم های سفارش"
 
     def __str__(self):
         return f"{self.quantity} x {self.product.name} in order {self.order.order_id}"

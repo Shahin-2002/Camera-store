@@ -8,6 +8,10 @@ class Cart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = "سبد خرید"
+        verbose_name_plural = "سبد های خرید"
+
     def __str__(self):
         return f"Cart for {self.user.username}"
 
@@ -28,6 +32,8 @@ class CartItem(models.Model):
 
     class Meta:
         unique_together = ("cart", "product")
+        verbose_name = "آیتم سبد خرید"
+        verbose_name_plural = "آیتم های سبد خرید"
 
     def __str__(self):
         return f"{self.quantity} x {self.product.name} in cart {self.cart.id}"

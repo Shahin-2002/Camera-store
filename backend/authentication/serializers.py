@@ -122,6 +122,27 @@ class PasswordResetSeializer(serializers.Serializer):
         return attrs
 
 
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(max_length=128, write_only=True)
+    new_password = serializers.CharField(max_length=128, write_only=True)
+    confirm_password = serializers.CharField(max_length=128, write_only=True)
+
+    def validate(self, attrs):
+        old_password = attrs.get("old_password")
+        new_password = attrs.get("new_password")
+        confirm_password = attrs.get("confirm_password")
+
+        if not old_password or not new_password or not confirm_password:
+            raise serializers.ValidationError("همه فیلدها الزامی هستند.")
+
+        if new_password != confirm_password:
+            raise serializers.ValidationError(
+                "رمز عبور جدید و تایید رمز عبور مطابقت ندارند."
+            )
+
+        return attrs
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
